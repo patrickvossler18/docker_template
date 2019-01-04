@@ -83,5 +83,5 @@ CMD ["python3"]
 
 
 RUN git clone https://pvossler@bitbucket.org/msesia/deepknockoffs.git
-RUN cd deepknockoffs/DeepKnockoffs
+WORKDIR "/deepknockoffs/DeepKnockoffs"
 RUN python3 setup.py install --user
