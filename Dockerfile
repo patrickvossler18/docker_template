@@ -8,6 +8,7 @@ RUN apt-get update && apt-get install -y \
     git \
     bzip2 \
     libx11-6 \
+    gcc \
  && rm -rf /var/lib/apt/lists/*
 
 # Create a working directory
