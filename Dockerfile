@@ -77,11 +77,10 @@ RUN conda install -y -c menpo opencv3=3.1.0 \
 
 RUN pip install numpy
 RUN pip install pandas scipy cvxpy cvxopt
-RUN git clone https://pvossler@bitbucket.org/msesia/deepknockoffs.git
-RUN cd deepknockoffs/DeepKnockoffs
-
 
 # Set the default command to python3
 CMD ["python3"]
 
 RUN python3 setup.py install --user
+RUN git clone https://pvossler@bitbucket.org/msesia/deepknockoffs.git
+RUN cd deepknockoffs/DeepKnockoffs
