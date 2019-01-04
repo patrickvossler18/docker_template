@@ -81,7 +81,7 @@ RUN pip install pandas scipy cvxpy cvxopt
 # Set the default command to python3
 CMD ["python3"]
 
-
+WORKDIR /home/user
 RUN git clone https://pvossler@bitbucket.org/msesia/deepknockoffs.git
-WORKDIR "/deepknockoffs/DeepKnockoffs"
-RUN python3 setup.py install --user
+# WORKDIR "/deepknockoffs/DeepKnockoffs"
+RUN python3 /home/user/deepknockoffs/DeepKnockoffs/setup.py install --user
