@@ -82,8 +82,8 @@ RUN pip install pandas scipy cvxpy cvxopt
 CMD ["python3"]
 
 WORKDIR /home/user
-ARG MY_TOKEN
+
 # RUN git clone https://pvossler@bitbucket.org/msesia/deepknockoffs.git
-RUN git clone https://${MY_TOKEN}@github.com/patrickvossler18/dk_fork.git
+RUN git clone https://github.com/patrickvossler18/dk_fork.git
 WORKDIR /home/user/deepknockoffs/DeepKnockoffs/
 RUN python3 /home/user/deepknockoffs/DeepKnockoffs/setup.py install --user
