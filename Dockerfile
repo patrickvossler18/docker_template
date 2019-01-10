@@ -51,29 +51,29 @@ RUN conda install -y -c pytorch \
  && conda clean -ya
 
 # Install HDF5 Python bindings
-RUN conda install -y h5py=2.8.0 \
- && conda clean -ya
-RUN pip install h5py-cache==1.0
+#RUN conda install -y h5py=2.8.0 \
+# && conda clean -ya
+#RUN pip install h5py-cache==1.0
 
 # Install Torchnet, a high-level framework for PyTorch
 RUN pip install torchnet==0.0.4
 
 # Install Requests, a Python library for making HTTP requests
-RUN conda install -y requests=2.19.1 \
- && conda clean -ya
+#RUN conda install -y requests=2.19.1 \
+# && conda clean -ya
 
 # Install Graphviz
-RUN conda install -y graphviz=2.38.0 \
- && conda clean -ya
-RUN pip install graphviz==0.8.4
+#RUN conda install -y graphviz=2.38.0 \
+# && conda clean -ya
+#RUN pip install graphviz==0.8.4
 
 # Install OpenCV3 Python bindings
-RUN sudo apt-get update && sudo apt-get install -y --no-install-recommends \
-    libgtk2.0-0 \
-    libcanberra-gtk-module \
- && sudo rm -rf /var/lib/apt/lists/*
-RUN conda install -y -c menpo opencv3=3.1.0 \
- && conda clean -ya
+#RUN sudo apt-get update && sudo apt-get install -y --no-install-recommends \
+#    libgtk2.0-0 \
+#    libcanberra-gtk-module \
+# && sudo rm -rf /var/lib/apt/lists/*
+#RUN conda install -y -c menpo opencv3=3.1.0 \
+# && conda clean -ya
 
 RUN pip install numpy
 RUN pip install pandas scipy cvxpy cvxopt
@@ -82,6 +82,8 @@ RUN pip install pandas scipy cvxpy cvxopt
 CMD ["python3"]
 
 WORKDIR /home/user
-RUN git clone https://pvossler@bitbucket.org/msesia/deepknockoffs.git
+ARG MY_TOKEN
+# RUN git clone https://pvossler@bitbucket.org/msesia/deepknockoffs.git
+RUN git clone https://${MY_TOKEN}@github.com/patrickvossler18/dk_fork.git
 WORKDIR /home/user/deepknockoffs/DeepKnockoffs/
 RUN python3 /home/user/deepknockoffs/DeepKnockoffs/setup.py install --user
