@@ -76,7 +76,7 @@ RUN pip install torchnet==0.0.4
 # && conda clean -ya
 
 RUN pip install numpy
-RUN pip install pandas scipy cvxpy cvxopt
+RUN pip install pandas scipy cvxpy cvxopt pushbullet.py
 
 # Set the default command to python3
 CMD ["python3"]
